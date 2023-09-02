@@ -1,51 +1,51 @@
-package entities;
+package br.com.diferpan.clinica.spring.entities;
 
-import lombok.*;
+import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-
+@Entity
+@Table(name = "tb_enderecos")
 public class Endereco {
-    @EqualsAndHashCode.Include
 
+    @EqualsAndHashCode.Include
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Cep cep;
-    private String numero ;
+    private String logradouro;
+    private String numero;
     private String complemento;
+    private String bairro;
+    private String cep;
+    private String cidade;
+    private String estado;
+
+    @OneToMany(mappedBy = "endereco") // Dependente da relação
+    private List<Paciente> pacientesList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "endereco") // Dependente da relação
+    private List<Funcionario> funcionariosList = new ArrayList<>();
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Endereco ");
-        //sb.append("id=").append(id);
-        sb.append("\n Cep: ").append(cep.getCep());
-        sb.append("\n Rua: "+cep.getLogradouro()).append(", n° ").append(numero);
-        if(!complemento.isEmpty())
-            sb.append(", complemento: ").append(complemento);
-
-        sb.append("\n Cidade: "+cep.getLocalidade()).append(", Estado: "+cep.getUf());
-
-        return sb.toString();
-    }
-
-    public Endereco() {
-    }
-
-    public Endereco(Cep cep, String numero, String complemento) {
-        this.cep = cep;
-        this.numero = numero;
-        this.complemento = complemento;
-    }
-    public Endereco(Cep cep, String numero) {
-        this.cep = cep;
-        this.numero = numero;
-        this.complemento = "";
-    }
-
-    public Endereco(Long id, Cep cep, String numero, String complemento) {
-        this.id = id;
-        this.cep = cep;
-        this.numero = numero;
-        this.complemento = complemento;
+        return "Endereco{" +
+                "id=" + id +
+                ", logradouro='" + logradouro + '\'' +
+                ", numero='" + numero + '\'' +
+                ", complemento='" + complemento + '\'' +
+                ", bairro='" + bairro + '\'' +
+                ", cep='" + cep + '\'' +
+                ", cidade='" + cidade + '\'' +
+                ", estado='" + estado + '\'' +
+                ", pacientesList=" + pacientesList +
+                ", funcionariosList=" + funcionariosList +
+                '}';
     }
 }

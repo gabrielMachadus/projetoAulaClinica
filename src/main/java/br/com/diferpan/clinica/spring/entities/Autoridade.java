@@ -5,35 +5,26 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Instant;
-
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "tb_notas_fiscais")
-public class NotaFiscal {
+@Table(name = "tb_autoridades")
+public class Autoridade {
 
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Double valor;
 
-    @Column(name = "data_emissao")
-    private Instant dataEmissao;
-
-    @OneToOne
-    @JoinColumn(name = "id_consulta")
-    private Consulta consulta;
+    @Column(name = "autoridade")
+    private String autoridade;
 
     @Override
     public String toString() {
-        return "NotaFiscal{" +
+        return "Autoridade{" +
                 "id=" + id +
-                ", valor=" + valor +
-                ", dataEmissao=" + dataEmissao +
-                ", consulta=" + consulta +
+                ", autoridade='" + autoridade + '\'' +
                 '}';
     }
 }

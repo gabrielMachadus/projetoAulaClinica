@@ -1,4 +1,4 @@
-package entities;
+package br.com.diferpan.clinica.spring.entities;
 
 
 import lombok.Getter;
