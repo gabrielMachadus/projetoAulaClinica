@@ -1,0 +1,74 @@
+        body {
+            background-image: url('https://img.freepik.com/free-photo/blur-hospital_1203-7972.jpg?w=1380&t=st=1693967576~exp=1693968176~hmac=f44b254ee0fb5feb19882cf2af5cabe429e713cb1ec345286cfbc33bc4bec8b3');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            max-width: 400px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+         .card-body{
+             padding:0px;
+         }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 20px;
+        }
+
+        .password-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .password-toggle i {
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+
+        .btn-primary:hover {
+            background-color: #2184c8;
+            border-color: #2184c8;
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+        }
+
+        .btn-danger:hover {
+            background-color: #d63a2f;
+            border-color: #d63a2f;
+        }
